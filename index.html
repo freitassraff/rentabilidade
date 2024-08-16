@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Rentabilidade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Rentabilidade</h1>
+        <form method="POST">
+            <label for="valor">Valor a ser investido (R$):</label>
+            <input type="number" id="valor" name="valor" step="0.01" required>
+
+            <label for="periodo">Período de investimento (dias):</label>
+            <input type="number" id="periodo" name="periodo" required>
+
+            <input type="submit" value="Calcular">
+        </form>
+
+        {% if resultados %}
+        <h2>Resultados:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Investimento</th>
+                    <th>Rentabilidade Anual Líquida (R$)</th>
+                    <th>Rentabilidade Mensal Líquida (R$)</th>
+                    <th>Rentabilidade Semanal Líquida (R$)</th>
+                    <th>Taxa Anual (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resultado in resultados %}
+                <tr>
+                    <td>{{ resultado.Investimento }}</td>
+                    <td>{{ resultado["Rentabilidade Anual Líquida (R$)"] }}</td>
+                    <td>{{ resultado["Rentabilidade Mensal Líquida (R$)"] }}</td>
+                    <td>{{ resultado["Rentabilidade Semanal Líquida (R$)"] }}</td>
+                    <td>{{ resultado["Taxa Anual (%)"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    </div>
+</body>
+</html>
+
+//create by Rafael Freitas
