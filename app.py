@@ -1,14 +1,16 @@
+#create by Rafael Freitas
+
 from flask import Flask, render_template, request
 import pandas as pd
 
 app = Flask(__name__)
 
 investimentos = {
-    "Banco A": 0.07,  # 7% a.a.
-    "Banco B": 0.065, # 6.5% a.a.
-    "Tesouro Direto": 0.06, # 6% a.a.
-    "CDB X": 0.08,    # 8% a.a.
-    "CDB Y": 0.075    # 7.5% a.a.
+    "Banco A": 0.07,  
+    "Banco B": 0.065, 
+    "Tesouro Direto": 0.06, 
+    "CDB X": 0.08,    
+    "CDB Y": 0.075 
 }
 
 def calcular_aliquota_ir(periodo_dias):
@@ -58,5 +60,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-#create by Rafael Freitas

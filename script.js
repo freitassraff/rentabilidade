@@ -1,3 +1,5 @@
+//create by Rafael Freitas
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
     const valorInput = document.getElementById('valor');
@@ -42,5 +44,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-//create by Rafael Freitas
